@@ -21,7 +21,7 @@ function titleSearch(title) {
   }).done(function (result){
   //console.log(result);
    var posterUrl = result.Poster;
-   $( ".titleImage" ).append( '<img src="' + posterUrl + '"></img>');
+   $( ".titleImage" ).append(posterUrl);
    $( ".movieTitle" ).append( '<img src="' + title + '"></img>');
   //then append div ==> var $img = $('<img src="') + imgLocale + '">'
   //http://www.omdbapi.com/?t=test
