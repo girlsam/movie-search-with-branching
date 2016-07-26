@@ -5,11 +5,12 @@ console.log('sanity check');
 $('form').on('submit', function(event){
   event.preventDefault();
   console.log('hijacked');
-});
+  var inputMovie = $('#inputMovie').val();
+  titleSearch(inputMovie);
 
 });
 
-
+});
 
 function titleSearch(title) {
 
@@ -18,10 +19,13 @@ function titleSearch(title) {
   dataType: 'json',
   url: 'http://www.omdbapi.com/?t=' + title
   }).done(function (result){
-  console.log(result);
+  //console.log(result);
+   var posterUrl = result.Poster;
+   $( ".titleImage" ).append( '<img src="' + posterUrl + '"></img>');
+   $( ".movieTitle" ).append( '<img src="' + title + '"></img>');
   //then append div ==> var $img = $('<img src="') + imgLocale + '">'
   //http://www.omdbapi.com/?t=test
   });
 }
 
-titleSearch("Jaws");
+//titleSearch("Jaws");
